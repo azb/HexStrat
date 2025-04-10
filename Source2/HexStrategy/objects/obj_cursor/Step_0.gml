@@ -11,7 +11,7 @@ if (canMove)
     {
         cursorX--;
         canMove = false
-        alarm[1] = 7
+        alarm[1] = 7 / -controlX
 		
     }
     
@@ -20,7 +20,7 @@ if (canMove)
     {
         cursorX++;
         canMove = false
-        alarm[1] = 7
+        alarm[1] = 7 / controlX
     }
     
     // Move Up
@@ -28,7 +28,7 @@ if (canMove)
     {
         cursorY--;
         canMove = false
-        alarm[1] = 7
+        alarm[1] = 7 / -controlY
     }
     
     // Move Down
@@ -36,7 +36,7 @@ if (canMove)
     {
         cursorY++;
         canMove = false
-        alarm[1] = 7
+        alarm[1] = 7 / controlY
     }
 }
 
