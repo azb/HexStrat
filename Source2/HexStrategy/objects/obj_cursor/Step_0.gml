@@ -40,10 +40,14 @@ if (canMove)
     }
 }
 
-x = radiusX + cursorX * radiusX * 1.5
-y = radiusY + cursorY * (radiusY * 2)
+var tx = radiusX + cursorX * radiusX * 1.5;
+var ty = radiusY + cursorY * (radiusY * 2);
+
 
 if ((cursorX+1) % 2 == 0)
 {
-	y += radiusY
+	ty += radiusY
 }
+
+x = (x + tx) / 2
+y = (y + ty) / 2
