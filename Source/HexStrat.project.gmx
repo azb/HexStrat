@@ -7,18 +7,25 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_grass</sprite>
-    <sprite>sprites\sprite2</sprite>
+    <sprite>sprites\spr_unit</sprite>
     <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_arrow</sprite>
+    <sprite>sprites\spr_attack</sprite>
+    <sprite>sprites\spr_laser</sprite>
     <sprite>sprites\spr_cursor</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\object0</object>
-    <object>objects\object1</object>
+    <object>objects\obj_unit</object>
+    <object>objects\obj_laser</object>
+    <object>objects\obj_gamepad_debugger</object>
     <object>objects\obj_cursor</object>
   </objects>
   <rooms name="rooms">

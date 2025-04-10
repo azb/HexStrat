@@ -35,6 +35,33 @@ tileWidth = radiusX * 2
 tileHeight = radiusY * 2
 
 selectedObject = -1
+
+canSelect = true
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canSelect = true
 </string>
           </argument>
         </arguments>
@@ -57,25 +84,30 @@ selectedObject = -1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check_pressed(vk_left)
+            <string>// Move Left
+if keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl)
 {
-cursorX--;
+    cursorX--;
 }
 
-if keyboard_check_pressed(vk_right)
+// Move Right
+if keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr)
 {
-cursorX++;
+    cursorX++;
 }
 
-if keyboard_check_pressed(vk_up)
+// Move Up
+if keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(0, gp_padu)
 {
-cursorY--;
+    cursorY--;
 }
 
-if keyboard_check_pressed(vk_down)
+// Move Down
+if keyboard_check_pressed(vk_down) || gamepad_button_check_pressed(0, gp_padd)
 {
-cursorY++;
+    cursorY++;
 }
+
 
 x = radiusX + cursorX * radiusX * 1.5
 y = radiusY + cursorY * (radiusY * 2)
@@ -84,6 +116,107 @@ if ((cursorX+1) % 2 == 0)
 {
 y += radiusY
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite(sprite_index,-1,x,y)
+
+isFriend = false
+isEnemy = false
+
+if (selectedObject != -1)
+{
+    draw_sprite_ext(sprite_index,-1,selectedObject.x, selectedObject.y,.8, .8, 0, c_white, 1)
+
+    for(i = 0 ; i &lt; 6 ; i++)
+    {
+    if (point_distance(
+        selectedObject.x, selectedObject.y, 
+        obj_cursor.x, obj_cursor.y) &gt; 8)
+        {
+        nearestUnit = instance_nearest(x, y, obj_unit)
+        if (nearestUnit != selectedObject &amp;&amp; 
+            point_distance(nearestUnit.x, nearestUnit.y, x, y) &lt; 8)
+            {
+            if (nearestUnit.team == selectedObject.team)
+                {
+                isFriend = true;
+                }
+            else
+                {
+                draw_sprite_ext(
+                        spr_attack,
+                        -1,
+                        x,
+                        y,
+                        1,
+                        1,
+                        0,
+                        c_white,
+                        1
+                    )
+                isEnemy = true;
+                }
+            }
+            
+            draw_sprite_ext(
+                    spr_arrow,
+                    -1,
+                    (x + selectedObject.x) / 2,
+                    (y + selectedObject.y) / 2,
+                    1,
+                    1,
+                    point_direction(
+                        selectedObject.x, selectedObject.y, 
+                        obj_cursor.x, obj_cursor.y),
+                    c_white,
+                    1
+                )
+            
+        }
+    }
+    
+    if (keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_select))
+        &amp;&amp; canSelect
+    {
+        if (!isFriend &amp;&amp; !isEnemy)
+        {
+            selectedObject.targetX = x
+            selectedObject.targetY = y
+        }
+        else
+        {
+            if (isEnemy)
+            {
+                selectedObject.target = nearestUnit
+            }
+        }
+        selectedObject = -1    
+        canSelect = false
+        alarm[0] = 10
+    }
+}
+
 </string>
           </argument>
         </arguments>
