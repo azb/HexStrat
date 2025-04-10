@@ -32,6 +32,12 @@ debugstr += "joystick_exists(0) = "+joystick_exists(0)+"#"
 debugstr += "joystick_exists(1) = "+joystick_exists(1)+"#"
 debugstr += "joystick_exists(2) = "+joystick_exists(2)+"#"
 debugstr += "gamepad_is_supported = "+gamepad_is_supported()+"#"
+debugstr += "gamepad_is_supported = "+gamepad_is_supported()+"#"
+debugstr += "gamepad_axis_value(0,gp_axislh) = "+gamepad_axis_value(0,gp_axislh)+"#"
+debugstr += "gamepad_axis_value(0,gp_axislv) = "+gamepad_axis_value(0,gp_axislv)+"#"
+debugstr += "gamepad_axis_value(0,gp_axisrh) = "+gamepad_axis_value(0,gp_axisrh)+"#"
+debugstr += "gamepad_axis_value(0,gp_axisrv) = "+gamepad_axis_value(0,gp_axisrv)+"#"
+debugstr += "gamepad_button_check(0,gp_select) = "+gamepad_button_check(0,gp_select)+"#"
 
 var gp_num = gamepad_get_device_count();
  for (var i = 0; i &lt; gp_num; i++;)

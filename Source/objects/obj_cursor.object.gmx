@@ -37,8 +37,30 @@ tileHeight = radiusY * 2
 selectedObject = -1
 
 canSelect = true
-
-
+canMove = true
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canMove = true
 </string>
           </argument>
         </arguments>
@@ -84,28 +106,39 @@ canSelect = true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Move Left
-if keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl)
+            <string>if (canMove)
 {
-    cursorX--;
-}
-
-// Move Right
-if keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr)
-{
-    cursorX++;
-}
-
-// Move Up
-if keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(0, gp_padu)
-{
-    cursorY--;
-}
-
-// Move Down
-if keyboard_check_pressed(vk_down) || gamepad_button_check_pressed(0, gp_padd)
-{
-    cursorY++;
+    // Move Left
+    if keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl) || joystick_xpos(1) &lt; -.2
+    {
+        cursorX--;
+        canMove = false
+        alarm[1] = 10
+    }
+    
+    // Move Right
+    if keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr) || joystick_xpos(1) &gt; .2
+    {
+        cursorX++;
+        canMove = false
+        alarm[1] = 10
+    }
+    
+    // Move Up
+    if keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(0, gp_padu) || joystick_ypos(1) &lt; -.2
+    {
+        cursorY--;
+        canMove = false
+        alarm[1] = 10
+    }
+    
+    // Move Down
+    if keyboard_check_pressed(vk_down) || gamepad_button_check_pressed(0, gp_padd) || joystick_ypos(1) &gt; .2
+    {
+        cursorY++;
+        canMove = false
+        alarm[1] = 10
+    }
 }
 
 
