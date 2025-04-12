@@ -21,9 +21,18 @@ surface_resize(application_surface, _dw, _dh);
 window_set_rectangle(0, 0, _dw, _dh);
 
 //ZOOM CONTROLS
-target_zoom = 1;        // desired zoom level
-current_zoom = 1;       // current zoom level
-zoom_speed = 0.05;      // how quickly to interpolate
-zoom_min = 0.5;         // max zoom in
-zoom_max = 2;           // max zoom out
+// Initial zoom setup
+target_zoom = 1;
+current_zoom = 1;
+zoom_speed = 0.05;
+zoom_min = 0.5;
+zoom_max = 2;
+
+// Store the center point of the camera (world coordinates)
+cam_center_x = 0;
+cam_center_y = 0;
+
+// Reference the camera
+cam = view_camera[0]; // or your specific camera
+
 ///////////////

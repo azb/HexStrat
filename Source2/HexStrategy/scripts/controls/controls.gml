@@ -76,7 +76,7 @@ function control_view_y()
 function zoom_out()
 {
 	var zval = 0;
-	if gamepad_button_check(0, gp_shoulderrb)
+	if gamepad_button_check(0, gp_shoulderlb)
 	zval = 1;
 	return zval;
 }
@@ -84,8 +84,8 @@ function zoom_out()
 function zoom_in()
 {
 	var zval = 0;
-	if gamepad_button_check(0, gp_shoulderlb)
-	zval = -1;
+	if gamepad_button_check(0, gp_shoulderrb)
+	zval = 1;
 	return zval;
 }
 

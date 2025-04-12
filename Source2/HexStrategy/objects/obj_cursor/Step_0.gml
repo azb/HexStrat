@@ -81,13 +81,6 @@ if (keyboard_check(ord("E")) || zoom_in()) {
     target_zoom += 0.01;
 }
 
-// --- 1. Handle input ---
-if (keyboard_check(ord("Q"))) {
-    target_zoom -= 0.01;
-}
-if (keyboard_check(ord("E"))) {
-    target_zoom += 0.01;
-}
 target_zoom = clamp(target_zoom, zoom_min, zoom_max);
 
 // --- 2. Smooth zoom interpolation ---
