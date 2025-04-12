@@ -41,4 +41,5 @@ if (target != -1)
 if (unit_health <= 0)
 {
 	instance_destroy()
+	instance_create_layer(x, y, "Lasers", obj_explosion)
 }

@@ -15,15 +15,15 @@ function control_x(){
 	
 	if (gamepad_is_connected(0))
 	{
-	if (gamepad_button_check_pressed(0, gp_padl))
-	{
-		xval = -1;
-	}
-	if (gamepad_button_check_pressed(0, gp_padr))
-	{
-		xval = 1;
-	}
-	xval += gamepad_axis_value(0,gp_axislh)
+		if (gamepad_button_check_pressed(0, gp_padl))
+		{
+			xval = -1;
+		}
+		if (gamepad_button_check_pressed(0, gp_padr))
+		{
+			xval = 1;
+		}
+		xval += gamepad_axis_value(0,gp_axislh)
 	}
 		
 	return xval;
@@ -41,16 +41,30 @@ function control_y(){
 	
 	if (gamepad_is_connected(0))
 	{
-	if (gamepad_button_check_pressed(0, gp_padu))
-	{
-		yval = -1;
-	}
-	if (gamepad_button_check_pressed(0, gp_padd))
-	{
-		yval = 1;
-	}
-	yval += gamepad_axis_value(0,gp_axislv)
+		if (gamepad_button_check_pressed(0, gp_padu))
+		{
+			yval = -1;
+		}
+		if (gamepad_button_check_pressed(0, gp_padd))
+		{
+			yval = 1;
+		}
+		yval += gamepad_axis_value(0,gp_axislv)
 	}
 		
+	return yval;
+}
+
+function control_view_x()
+{
+	var xval = 0;
+	xval += gamepad_axis_value(0,gp_axisrv)
+	return xval;
+}
+
+function control_view_y()
+{
+	var yval = 0;
+	yval += gamepad_axis_value(0,gp_axisrv)
 	return yval;
 }

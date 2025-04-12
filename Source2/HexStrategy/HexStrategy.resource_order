@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_explosion","order":5,"path":"objects/obj_explosion/obj_explosion.yy",},
     {"name":"obj_land","order":3,"path":"objects/obj_land/obj_land.yy",},
     {"name":"obj_laser","order":1,"path":"objects/obj_laser/obj_laser.yy",},
     {"name":"obj_ship","order":4,"path":"objects/obj_ship/obj_ship.yy",},
@@ -24,6 +25,7 @@
     {"name":"spr_arrow","order":4,"path":"sprites/spr_arrow/spr_arrow.yy",},
     {"name":"spr_attack","order":3,"path":"sprites/spr_attack/spr_attack.yy",},
     {"name":"spr_cursor","order":1,"path":"sprites/spr_cursor/spr_cursor.yy",},
+    {"name":"spr_explosion","order":8,"path":"sprites/spr_explosion/spr_explosion.yy",},
     {"name":"spr_land","order":2,"path":"sprites/spr_land/spr_land.yy",},
     {"name":"spr_laser","order":6,"path":"sprites/spr_laser/spr_laser.yy",},
     {"name":"spr_ship","order":7,"path":"sprites/spr_ship/spr_ship.yy",},
