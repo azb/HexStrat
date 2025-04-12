@@ -58,7 +58,9 @@ function control_y(){
 function control_view_x()
 {
 	var xval = 0;
-	xval += gamepad_axis_value(0,gp_axisrv)
+	xval += gamepad_axis_value(0,gp_axisrh)
+	if (abs(xval) < .2)
+		xval = 0;
 	return xval;
 }
 
@@ -66,5 +68,24 @@ function control_view_y()
 {
 	var yval = 0;
 	yval += gamepad_axis_value(0,gp_axisrv)
+	if (abs(yval) < .2)
+		yval = 0;
 	return yval;
 }
+
+function zoom_out()
+{
+	var zval = 0;
+	if gamepad_button_check(0, gp_shoulderrb)
+	zval = 1;
+	return zval;
+}
+
+function zoom_in()
+{
+	var zval = 0;
+	if gamepad_button_check(0, gp_shoulderlb)
+	zval = -1;
+	return zval;
+}
+
